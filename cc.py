@@ -26,7 +26,7 @@ class cc:
         self.l = n * dp * scale * (math.pi/nt) / 2
         print(self.l)
 
-    def count(self, t, p):
+    def count(self, t, p) -> int:
         cx = int(self.px / 2 + p * math.cos(t))
         cy = int(self.py / 2 + p * math.sin(t))
         # l(s) = (cx, cy) + (-sin(t),cos(t))*s
@@ -68,13 +68,15 @@ class cc:
                     c += 1
             else:
                 en = True
+        
         return c
 
     def is_black(self, pt) -> bool:
         px, py = self.im.size
-        if self.im.getpixel((pt[0], pt[1]))[0] != 255:
-            return True
-        return False
+        rgb = self.im.getpixel((pt[0], pt[1]))
+        if rgb[0] > 250 and rgb[1] > 250 and rgb[2] > 250:
+            return False
+        return True 
 
 if __name__ == '__main__':
     c = cc('test.png', 2, 2)
