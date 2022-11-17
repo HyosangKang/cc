@@ -79,5 +79,5 @@ class cc:
         return True 
 
 if __name__ == '__main__':
-    c = cc('test.png', 2, 2)
+    c = cc('img/test.png', 2, 2)
     c.run(10, 8)
